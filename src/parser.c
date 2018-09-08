@@ -408,14 +408,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 40:
       if (lookahead == '\"')
         ADVANCE(2);
-      if (lookahead == '+')
-        ADVANCE(5);
-      if (lookahead == '-')
-        ADVANCE(5);
-      if (lookahead == '.')
-        ADVANCE(13);
-      if (lookahead == '0')
-        ADVANCE(14);
       if (lookahead == '}')
         ADVANCE(38);
       if (lookahead == '\t' ||
@@ -423,8 +415,6 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == '\r' ||
           lookahead == ' ')
         SKIP(40);
-      if (('1' <= lookahead && lookahead <= '9'))
-        ADVANCE(11);
       END_STATE();
     case 41:
       if (lookahead == 0)
@@ -546,7 +536,6 @@ static uint16_t ts_parse_table[STATE_COUNT][SYMBOL_COUNT] = {
     [sym_pair] = STATE(8),
     [anon_sym_RBRACE] = ACTIONS(9),
     [sym_string] = ACTIONS(11),
-    [sym_number] = ACTIONS(11),
   },
   [3] = {
     [sym__value] = STATE(10),
@@ -607,7 +596,6 @@ static uint16_t ts_parse_table[STATE_COUNT][SYMBOL_COUNT] = {
   [12] = {
     [sym_pair] = STATE(19),
     [sym_string] = ACTIONS(11),
-    [sym_number] = ACTIONS(11),
   },
   [13] = {
     [ts_builtin_sym_end] = ACTIONS(37),

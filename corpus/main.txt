@@ -59,3 +59,21 @@ null
 ---
 
 (value (null))
+
+
+================================
+Only string keys
+================================
+
+{
+	1: "a"
+}
+
+
+---
+
+(value 
+  (object
+    (ERROR
+      (number)
+      (string))))
