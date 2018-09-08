@@ -23,7 +23,7 @@ module.exports = grammar({
     ),
 
     pair: $ => seq(
-      choice($.string, $.number),
+      $.string,
       ":",
       $._value
     ),
