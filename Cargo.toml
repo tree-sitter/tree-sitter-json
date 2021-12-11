@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-json"
 description = "json grammar for the tree-sitter parsing library"
-version = "0.19.0"
+version = "0.19.1"
 keywords = ["incremental", "parsing", "json"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/tree-sitter/tree-sitter-javascript"
@@ -21,7 +21,7 @@ include = [
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "0.19"
+tree-sitter = ">= 0.19"
 
 [build-dependencies]
 cc = "1.0"
