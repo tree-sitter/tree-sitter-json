@@ -60,7 +60,7 @@ ifneq (,$(filter $(shell uname),FreeBSD NetBSD DragonFly))
 	PCLIBDIR := $(PREFIX)/libdata/pkgconfig
 endif
 				
-all: npm libtree-sitter-$(PARSER_NAME).a libtree-sitter-$(PARSER_NAME).$(SOEXTVER) bindings/c/tree-sitter-$(PARSER_NAME).h
+all: libtree-sitter-$(PARSER_NAME).a libtree-sitter-$(PARSER_NAME).$(SOEXTVER) bindings/c/tree-sitter-$(PARSER_NAME).h
 
 npm:
 	npm install
