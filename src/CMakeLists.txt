@@ -1,14 +1,9 @@
 set(LIBRARY_NAME "${PROJECT_NAME}")
 
-set(Header_Files "tree_sitter/parser.h")
-source_group("Header Files" FILES "${Header_Files}")
-
 set(Source_Files "parser.c")
 source_group("Header Files" FILES "${Header_Files}")
 
-add_library("${LIBRARY_NAME}" "${Header_Files}" "${Source_Files}")
-
-target_link_libraries("${LIBRARY_NAME}" PRIVATE "${PROJECT_NAME}_compiler_flags")
+add_library("${LIBRARY_NAME}" "${Source_Files}")
 
 include(GNUInstallDirs)
 target_include_directories(
@@ -18,6 +13,11 @@ target_include_directories(
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
+target_link_libraries("${LIBRARY_NAME}" PRIVATE "${PROJECT_NAME}_compiler_flags")
+
+add_subdirectory("tree_sitter")
+target_link_libraries("${LIBRARY_NAME}" PUBLIC "${PROJECT_NAME}-tree_sitter")
+
 #=========#
 # Install #
 #=========#
@@ -26,14 +26,11 @@ target_include_directories(
 set_property(TARGET "${LIBRARY_NAME}" PROPERTY VERSION "${${PROJECT_NAME}_VERSION}")
 set_property(TARGET "${LIBRARY_NAME}" PROPERTY SOVERSION "${${PROJECT_NAME}_VERSION_MAJOR}")
 
-install(FILES ${Header_Files}
-        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}")
-
 #====================#
 # Package to install #
 #====================#
 
-set(installable_libs "${LIBRARY_NAME}" "${PROJECT_NAME}_compiler_flags")
+set(installable_libs "${LIBRARY_NAME}" "${PROJECT_NAME}-tree_sitter" "${PROJECT_NAME}_compiler_flags")
 if (TARGET "${DEPENDANT_LIBRARY}")
     list(APPEND installable_libs "${DEPENDANT_LIBRARY}")
 endif ()
