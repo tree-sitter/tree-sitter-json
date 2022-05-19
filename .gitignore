@@ -1,6 +1,7 @@
 node_modules
-build
+*build*
 target
 *.log
 package-lock.json
 Cargo.lock
+.idea
