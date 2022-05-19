@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(tree_sitter_json VERSION 0.20.0 LANGUAGES C)
+project(tree-sitter-json VERSION 0.20.0 LANGUAGES C)
 
 #===============#
 # Compiler args #

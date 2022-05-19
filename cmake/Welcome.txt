@@ -1,1 +1,1 @@
-This installs tree_sitter_json.
+This installs tree-sitter-json.

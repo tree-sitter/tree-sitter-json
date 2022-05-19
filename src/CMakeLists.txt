@@ -1,4 +1,4 @@
-set(LIBRARY_NAME "tree-sitter-json")
+set(LIBRARY_NAME "${PROJECT_NAME}")
 
 set(Header_Files "tree_sitter/parser.h")
 source_group("Header Files" FILES "${Header_Files}")
