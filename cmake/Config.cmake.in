@@ -1,4 +1,4 @@
 
 @PACKAGE_INIT@
 
-include ( "${CMAKE_CURRENT_LIST_DIR}/tree_sitterTargets.cmake" )
+include ( "${CMAKE_CURRENT_LIST_DIR}/tree-sitter-jsonTargets.cmake" )
