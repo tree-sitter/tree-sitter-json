@@ -42,6 +42,7 @@ configure_file(
 # Sub-targets #
 #=============#
 
+add_subdirectory("src/tree_sitter")
 add_subdirectory("src")
 
 include(CTest)

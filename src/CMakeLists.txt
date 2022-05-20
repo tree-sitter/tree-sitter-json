@@ -14,8 +14,6 @@ target_include_directories(
 )
 
 target_link_libraries("${LIBRARY_NAME}" PRIVATE "${PROJECT_NAME}_compiler_flags")
-
-add_subdirectory("tree_sitter")
 target_link_libraries("${LIBRARY_NAME}" PUBLIC "${PROJECT_NAME}-tree_sitter")
 
 #=========#
@@ -38,6 +36,7 @@ install(TARGETS ${installable_libs}
         EXPORT "${LIBRARY_NAME}Targets"
         ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+        PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}")
 install(EXPORT "${LIBRARY_NAME}Targets"
         DESTINATION "${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
