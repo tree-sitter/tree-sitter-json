@@ -5,3 +5,6 @@ target
 package-lock.json
 Cargo.lock
 /.build
+parser.exp
+parser.lib
+parser.obj
