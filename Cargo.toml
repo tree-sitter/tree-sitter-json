@@ -5,7 +5,7 @@ version = "0.0.1"
 keywords = ["incremental", "parsing", "json"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/ArmandBurger/tree-sitter-json"
-edition = "021"
+edition = "2021"
 license = "MIT"
 
 build = "bindings/rust/build.rs"
