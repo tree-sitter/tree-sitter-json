@@ -1,0 +1,251 @@
+{
+    "version": "1.2.4",
+    "title": "Infected Hold of the One-eyed One",
+    "story": "The hold of the One-eyed One is situated on a distant island. Recently it was squatted by a gang of thugs. The hold of the One-eyed One is home to a rare specie of plants.",
+    "rects": [
+        {
+            "x": -2,
+            "y": -2,
+            "w": 2,
+            "h": 5
+        },
+        {
+            "x": -2,
+            "y": -7,
+            "w": 3,
+            "h": 4
+        },
+        {
+            "x": -2,
+            "y": 4,
+            "w": 3,
+            "h": 4
+        },
+        {
+            "x": -6,
+            "y": -2,
+            "w": 3,
+            "h": 5
+        },
+        {
+            "x": 2,
+            "y": -6,
+            "w": 3,
+            "h": 3
+        },
+        {
+            "x": -6,
+            "y": -6,
+            "w": 3,
+            "h": 3
+        },
+        {
+            "x": -6,
+            "y": 4,
+            "w": 3,
+            "h": 4
+        },
+        {
+            "x": -11,
+            "y": 3,
+            "w": 4,
+            "h": 5
+        },
+        {
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -1,
+            "y": -3,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -1,
+            "y": 3,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -3,
+            "y": 0,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": 1,
+            "y": -5,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -3,
+            "y": -5,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -5,
+            "y": 3,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -7,
+            "y": 5,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -3,
+            "y": 5,
+            "w": 1,
+            "h": 1
+        },
+        {
+            "x": -6,
+            "y": -3,
+            "w": 1,
+            "h": 1
+        }
+    ],
+    "doors": [
+        {
+            "x": 0,
+            "y": 0,
+            "dir": {
+                "x": -1,
+                "y": 0
+            },
+            "type": 3
+        },
+        {
+            "x": -1,
+            "y": -3,
+            "dir": {
+                "x": 0,
+                "y": -1
+            },
+            "type": 1
+        },
+        {
+            "x": -1,
+            "y": 3,
+            "dir": {
+                "x": 0,
+                "y": 1
+            },
+            "type": 1
+        },
+        {
+            "x": -3,
+            "y": 0,
+            "dir": {
+                "x": -1,
+                "y": 0
+            },
+            "type": 5
+        },
+        {
+            "x": 1,
+            "y": -5,
+            "dir": {
+                "x": 1,
+                "y": 0
+            },
+            "type": 0
+        },
+        {
+            "x": -3,
+            "y": -5,
+            "dir": {
+                "x": -1,
+                "y": 0
+            },
+            "type": 0
+        },
+        {
+            "x": -5,
+            "y": 3,
+            "dir": {
+                "x": 0,
+                "y": 1
+            },
+            "type": 1
+        },
+        {
+            "x": -7,
+            "y": 5,
+            "dir": {
+                "x": -1,
+                "y": 0
+            },
+            "type": 1
+        },
+        {
+            "x": -3,
+            "y": 5,
+            "dir": {
+                "x": -1,
+                "y": 0
+            },
+            "type": 7
+        },
+        {
+            "x": -6,
+            "y": -3,
+            "dir": {
+                "x": 0,
+                "y": -1
+            },
+            "type": 7
+        }
+    ],
+    "notes": [
+        {
+            "text": "A massive stone door with a keyhole to the west.",
+            "ref": "1",
+            "pos": {
+                "x": -1,
+                "y": 0.5
+            }
+        },
+        {
+            "text": "A chest with a crowbar.",
+            "ref": "2",
+            "pos": {
+                "x": -0.5,
+                "y": -5
+            }
+        },
+        {
+            "text": "An iron key in a reinforced locker.",
+            "ref": "3",
+            "pos": {
+                "x": -0.5,
+                "y": 6
+            }
+        },
+        {
+            "text": "A giant pile of rubble hides a breastplate and a mace.",
+            "ref": "4",
+            "pos": {
+                "x": 3.5,
+                "y": -4.5
+            }
+        },
+        {
+            "text": "A painting, totally destroyed by mold.",
+            "ref": "5",
+            "pos": {
+                "x": -4.5,
+                "y": -4.5
+            }
+        }
+    ],
+    "columns": [],
+    "water": []
+}

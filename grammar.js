@@ -1,114 +1,135 @@
 module.exports = grammar({
-  name: 'json',
+    name: 'json',
 
-  extras: $ => [
-    /\s/,
-    $.comment,
-  ],
+    rules: {
+        element: $ => $._value,
 
-  supertypes: $ => [
-    $._value
-  ],
+        _value: $ => choice(
+            $.object,
+            $.array,
+            $.string,
+            $.number,
+            $.true,
+            $.false,
+            $.null
+        ),
 
-  rules: {
-    document: $ => $._value,
+        comma: $ => ',',
 
-    _value: $ => choice(
-      $.object,
-      $.array,
-      $.number,
-      $.string,
-      $.true,
-      $.false,
-      $.null
-    ),
+        // Object
+        opening_curly_brace: $ => '{',
 
-    object: $ => seq(
-      "{", commaSep($.pair), "}"
-    ),
+        closing_curly_brace: $ => '}',
 
-    pair: $ => seq(
-      field("key", choice($.string, $.number)),
-      ":",
-      field("value", $._value)
-    ),
+        colon: $ => ':',
 
-    array: $ => seq(
-      "[", commaSep($._value), "]"
-    ),
+        pair: $ => seq(
+            $.string,
+            $.colon,
+            $._value
+        ),
 
-    string: $ => choice(
-      seq('"', '"'),
-      seq('"', $.string_content, '"')
-    ),
+        object: $ => seq(
+            $.opening_curly_brace,
+            optional(
+                choice(
+                    repeated_entry($.pair, $.comma),
+                    repeated_entry($._value, $.comma)
+                )
+            ),
+            $.closing_curly_brace
+        ),
 
-    string_content: $ => repeat1(choice(
-      token.immediate(prec(1, /[^\\"\n]+/)),
-      $.escape_sequence
-    )),
+        // Array
+        opening_square_bracket: $ => '[',
 
-    escape_sequence: $ => token.immediate(seq(
-      '\\',
-      /(\"|\\|\/|b|f|n|r|t|u)/
-    )),
+        closing_square_bracket: $ => ']',
 
-    number: $ => {
-      const hex_literal = seq(
-        choice('0x', '0X'),
-        /[\da-fA-F]+/
-      )
+        array: $ => seq(
+            $.opening_square_bracket,
+            optional(
+                repeated_entry($._value, $.comma)
+            ),
+            $.closing_square_bracket
+        ),
 
-      const decimal_digits = /\d+/
-      const signed_integer = seq(optional(choice('-', '+')), decimal_digits)
-      const exponent_part = seq(choice('e', 'E'), signed_integer)
+        // String
+        double_apostrophe: $ => '"',
 
-      const binary_literal = seq(choice('0b', '0B'), /[0-1]+/)
+        empty_string: $ => seq(
+            $.double_apostrophe,
+            $.double_apostrophe
+        ),
 
-      const octal_literal = seq(choice('0o', '0O'), /[0-7]+/)
+        string_content: $ => repeat1(
+            /((\\")+)?[^"]+((\\")+)?/
+        ),
 
-      const decimal_integer_literal = seq(
-        optional(choice('-', '+')),
-        choice(
-          '0',
-          seq(/[1-9]/, optional(decimal_digits))
-        )
-      )
+        string: $ => choice(
+            $.empty_string,
+            seq(
+                $.double_apostrophe,
+                $.string_content,
+                $.double_apostrophe
+            )
+        ),
 
-      const decimal_literal = choice(
-        seq(decimal_integer_literal, '.', optional(decimal_digits), optional(exponent_part)),
-        seq('.', decimal_digits, optional(exponent_part)),
-        seq(decimal_integer_literal, optional(exponent_part))
-      )
+        // Number
+        positive_sign: $ => '+',
 
-      return token(choice(
-        hex_literal,
-        decimal_literal,
-        binary_literal,
-        octal_literal
-      ))
-    },
+        negative_sign: $ => '-',
 
-    true: $ => "true",
+        sign: $ => choice($.positive_sign, $.negative_sign),
 
-    false: $ => "false",
+        digits: $ => /[0-9]+/,
 
-    null: $ => "null",
+        integer: $ => seq(
+            optional($.negative_sign),
+            $.digits
+        ),
 
-    comment: $ => token(choice(
-      seq('//', /.*/),
-      seq(
-        '/*',
-        /[^*]*\*+([^/*][^*]*\*+)*/,
-        '/'
-      )
-    )),
-  }
+        decimal_point: $ => '.',
+
+        fraction: $ => seq(
+            $.decimal_point,
+            $.digits,
+        ),
+
+        exponent_function: $ => choice('e', 'E'),
+
+        exponent: $ => seq(
+            $.exponent_function,
+            optional($.sign),
+            $.digits
+        ),
+
+        number: $ => seq(
+            $.integer,
+            optional($.fraction),
+            optional($.exponent)
+        ),
+
+        // True
+        true: $ => 'true',
+
+        // False
+        false: $ => 'false',
+
+        // Null
+        null: $ => 'null'
+    }
 });
 
-function commaSep1(rule) {
-  return seq(rule, repeat(seq(",", rule)))
-}
-
-function commaSep(rule) {
-  return optional(commaSep1(rule))
+function repeated_entry(rule, seperator) {
+    return seq(
+        rule,
+        optional(
+            repeat(
+                seq(
+                    seperator,
+                    rule,
+                )
+            )
+        )
+    )
 }

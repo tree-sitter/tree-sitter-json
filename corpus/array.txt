@@ -1,0 +1,135 @@
+================================================================================
+Array: empty
+================================================================================
+
+[
+
+]
+
+--------------------------------------------------------------------------------
+
+(element
+    (array
+        (opening_square_bracket)
+        (closing_square_bracket)
+    )
+)
+
+================================================================================
+Array: complex
+================================================================================
+
+[
+    [],
+    [
+        null,
+        null
+    ],
+    [
+        true,
+        false
+    ],
+    [
+        0,
+        - 1234567890.9576321E-26
+    ],
+    {
+        "",
+        "Hello, World!",
+        "Hello, World!\"\"\"saskladj|\"\"\"Goodbey!\"\"\"",
+        "\"\"\"\"\|\"gskinner.com",
+        "\"\\\/\b\f\n\r\t\u"
+    }
+]
+
+--------------------------------------------------------------------------------
+
+(element
+    (array
+        (opening_square_bracket)
+        (array
+            (opening_square_bracket)
+            (closing_square_bracket)
+        )
+        (comma)
+        (array
+            (opening_square_bracket)
+            (null)
+            (comma)
+            (null)
+            (closing_square_bracket)
+        )
+        (comma)
+        (array
+            (opening_square_bracket)
+            (true)
+            (comma)
+            (false)
+            (closing_square_bracket)
+        )
+        (comma)
+        (array
+            (opening_square_bracket)
+            (number
+                (integer
+                    (digits)
+                )
+            )
+            (comma)
+            (number
+                (integer
+                    (negative_sign)
+                    (digits)
+                )
+                (fraction
+                    (decimal_point)
+                    (digits)
+                )
+                (exponent
+                    (exponent_function)
+                    (sign
+                        (negative_sign)
+                    )
+                    (digits)
+                )
+            )
+            (closing_square_bracket)
+        )
+        (comma)
+        (object
+            (opening_curly_brace)
+            (string
+                (empty_string
+                    (double_apostrophe)
+                    (double_apostrophe)
+                )
+            )
+            (comma)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (comma)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (comma)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (comma)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (closing_curly_brace)
+        )
+        (closing_square_bracket)
+    )
+)
