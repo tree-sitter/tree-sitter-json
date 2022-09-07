@@ -1,0 +1,267 @@
+================================================================================
+Object: empty
+================================================================================
+
+{}
+
+--------------------------------------------------------------------------------
+
+(element
+    (object
+        (opening_curly_brace)
+        (closing_curly_brace)
+    )
+)
+
+================================================================================
+Object: all value types key/value pair
+================================================================================
+
+{
+    "key": null,
+    "key1": true,
+    "key2": false,
+    "key3": 0,
+    "key4": -1234567890.9576321E-26,
+    "key5": "\"\"\"\"\|\"gskinner.com",
+    "key6": "\"\\\/\b\f\n\r\t\u",
+    "key7": [],
+    "key8": {
+                "key01": null,
+                "key11": true,
+                "key21": false,
+                "key31": 0,
+                "key41": - 1234567890.1e-26,
+                "key51": "\"\"\"\"\|\"gskinner.com",
+                "key61": "\"\\\/\b\f\n\r\t\u"
+            }
+}
+
+--------------------------------------------------------------------------------
+
+(element
+    (object
+        (opening_curly_brace)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (null)
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (true)
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (false)
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (number
+                (integer
+                    (digits)
+                )
+            )
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (number
+                (integer
+                    (negative_sign)
+                    (digits)
+                )
+                (fraction
+                    (decimal_point)
+                    (digits)
+                )
+                (exponent
+                    (exponent_function)
+                    (sign
+                        (negative_sign)
+                    )
+                    (digits)
+                )
+            )
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (array
+                (opening_square_bracket)
+                (closing_square_bracket)
+            )
+        )
+        (comma)
+        (pair
+            (string
+                (double_apostrophe)
+                (string_content)
+                (double_apostrophe)
+            )
+            (colon)
+            (object
+                (opening_curly_brace)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (null)
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (true)
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (false)
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (number
+                        (integer
+                            (digits)
+                        )
+                    )
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (number
+                        (integer
+                            (negative_sign)
+                            (digits)
+                        )
+                        (fraction
+                            (decimal_point)
+                            (digits)
+                        )
+                        (exponent
+                            (exponent_function)
+                            (sign
+                                (negative_sign)
+                            )
+                            (digits)
+                        )
+                    )
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                )
+                (comma)
+                (pair
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                    (colon)
+                    (string
+                        (double_apostrophe)
+                        (string_content)
+                        (double_apostrophe)
+                    )
+                )
+                (closing_curly_brace)
+            )
+        )
+        (closing_curly_brace)
+    )
+)
