@@ -40,7 +40,7 @@ module.exports = grammar({
     ),
 
     pair: $ => seq(
-      field('key', choice($.string, $.number)),
+      field('key', $.string),
       ':',
       field('value', $._value),
     ),
