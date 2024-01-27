@@ -18,9 +18,10 @@
       "url": "https://github.com/tree-sitter/tree-sitter-json.git"
   },
   "devDependencies": {
-    "eslint": ">=8.50.0",
+    "eslint": ">=8.56.0",
     "eslint-config-google": "^0.14.0",
-    "tree-sitter-cli": "^0.20.8"
+    "tree-sitter-cli": "^0.20.8",
+    "node-gyp": "^10.0.1"
   },
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
