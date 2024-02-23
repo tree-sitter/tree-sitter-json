@@ -6,7 +6,7 @@
 //! ```
 //! let code = "";
 //! let mut parser = tree_sitter::Parser::new();
-//! parser.set_language(tree_sitter_json::language()).expect("Error loading json grammar");
+//! parser.set_language(&tree_sitter_json::language()).expect("error loading json grammar");
 //! let tree = parser.parse(code, None).unwrap();
 //! ```
 //!
@@ -15,16 +15,14 @@
 //! [Parser]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Parser.html
 //! [tree-sitter]: https://tree-sitter.github.io/
 
-use tree_sitter::Language;
-
-extern "C" {
-    fn tree_sitter_json() -> Language;
-}
-
 /// Get the tree-sitter [Language][] for this grammar.
 ///
 /// [Language]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Language.html
-pub fn language() -> Language {
+pub fn language() -> tree_sitter::Language {
+    extern "C" {
+        fn tree_sitter_json() -> tree_sitter::Language;
+    }
+
     unsafe { tree_sitter_json() }
 }
 
@@ -38,14 +36,3 @@ pub const HIGHLIGHT_QUERY: &'static str = include_str!("../../queries/highlights
 // pub const INJECTIONS_QUERY: &'static str = include_str!("../../queries/injections.scm");
 // pub const LOCALS_QUERY: &'static str = include_str!("../../queries/locals.scm");
 // pub const TAGS_QUERY: &'static str = include_str!("../../queries/tags.scm");
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test_can_load_grammar() {
-        let mut parser = tree_sitter::Parser::new();
-        parser
-            .set_language(super::language())
-            .expect("Error loading json language");
-    }
-}
