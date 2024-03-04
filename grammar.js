@@ -1,12 +1,10 @@
 /**
  * @file JSON grammar for tree-sitter
- * @author Max Brunsfeld
+ * @author Max Brunsfeld <maxbrunsfeld@gmail.com>
+ * @author Amaan Qureshi <amaanq12@gmail.com>
  * @license MIT
  */
 
-/* eslint-disable arrow-parens */
-/* eslint-disable camelcase */
-/* eslint-disable-next-line spaced-comment */
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
@@ -65,24 +63,24 @@ module.exports = grammar({
     )),
 
     number: _ => {
-      const decimal_digits = /\d+/;
-      const signed_integer = seq(optional('-'), decimal_digits);
-      const exponent_part = seq(choice('e', 'E'), signed_integer);
+      const decimalDigits = /\d+/;
+      const signedInteger = seq(optional('-'), decimalDigits);
+      const exponentPart = seq(choice('e', 'E'), signedInteger);
 
-      const decimal_integer_literal = seq(
+      const decimalIntegerLiteral = seq(
         optional('-'),
         choice(
           '0',
-          seq(/[1-9]/, optional(decimal_digits)),
+          seq(/[1-9]/, optional(decimalDigits)),
         ),
       );
 
-      const decimal_literal = choice(
-        seq(decimal_integer_literal, '.', optional(decimal_digits), optional(exponent_part)),
-        seq(decimal_integer_literal, optional(exponent_part)),
+      const decimalLiteral = choice(
+        seq(decimalIntegerLiteral, '.', optional(decimalDigits), optional(exponentPart)),
+        seq(decimalIntegerLiteral, optional(exponentPart)),
       );
 
-      return token(decimal_literal);
+      return token(decimalLiteral);
     },
 
     true: _ => 'true',
