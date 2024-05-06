@@ -183,7 +183,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "string_content"
+              "name": "_string_content"
             },
             {
               "type": "STRING",
@@ -193,27 +193,31 @@
         }
       ]
     },
-    "string_content": {
+    "_string_content": {
       "type": "REPEAT1",
       "content": {
         "type": "CHOICE",
         "members": [
           {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "PREC",
-              "value": 1,
-              "content": {
-                "type": "PATTERN",
-                "value": "[^\\\\\"\\n]+"
-              }
-            }
+            "type": "SYMBOL",
+            "name": "string_content"
           },
           {
             "type": "SYMBOL",
             "name": "escape_sequence"
           }
         ]
+      }
+    },
+    "string_content": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\\\\"\\n]+"
+        }
       }
     },
     "escape_sequence": {

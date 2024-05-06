@@ -53,14 +53,14 @@ String content
     (string
       (string_content))
     (string
-      (string_content
-        (escape_sequence)))
+      (string_content)
+      (escape_sequence))
     (string
-      (string_content
-        (escape_sequence)))
+      (string_content)
+      (escape_sequence))
     (string
-      (string_content
-        (escape_sequence)))
+      (string_content)
+      (escape_sequence))
     (string
       (string_content))
     (string
@@ -130,7 +130,7 @@ Comments
 
 ===========================================
 Multiple top-level objects
-==========================================
+===========================================
 
 {}
 {}
