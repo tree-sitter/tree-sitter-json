@@ -49,13 +49,15 @@ module.exports = grammar({
 
     string: $ => choice(
       seq('"', '"'),
-      seq('"', $.string_content, '"'),
+      seq('"', $._string_content, '"'),
     ),
 
-    string_content: $ => repeat1(choice(
-      token.immediate(prec(1, /[^\\"\n]+/)),
+    _string_content: $ => repeat1(choice(
+      $.string_content,
       $.escape_sequence,
     )),
+
+    string_content: _ => token.immediate(prec(1, /[^\\"\n]+/)),
 
     escape_sequence: _ => token.immediate(seq(
       '\\',
