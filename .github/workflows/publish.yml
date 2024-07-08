@@ -1,4 +1,37 @@
-name: Publish packages
+            - name: Rainforest QA GitHub Action
+  # You may pin to the exact commit or the version.
+  # uses: rainforestapp/github-action@5855f2c2427c564554663926b143b9ce3bce17c8
+  uses: rainforestapp/github-action@v3.2.5
+  with:
+    # An arbitrary string to associate with the run
+    description: # optional, default is 
+    # Only run tests tied to this Run Group
+    run_group_id: 
+    # Use a specific environment for this run
+    environment_id: # optional, default is 
+    # Use a specific URL for this run
+    custom_url: # optional, default is 
+    # How other currently in-progress runs should be handled. Values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+    conflict: # optional, default is 
+    # The execution method to use for this run
+    execution_method: # optional, default is 
+    # DEPRECATED: Use `execution_method` instead
+    crowd: # optional, default is 
+    # Manually entered release information about the release the run is associated with
+    release: # optional, default is 
+    # If set to a value > 0 and a test fails, it will be retried within the same run, up to that number of times
+    automation_max_retries: # optional, default is 
+    # Use a specific Rainforest branch for this run
+    branch: # optional, default is 
+    # Your Rainforest QA API token
+    token: 
+    # Do not wait for a run to complete before exiting
+    background: # optional, default is 
+    # Set to true to run parameter validations without starting a new Rainforest run
+    dry_run: # optional, default is 
+    # The cache key to use for saving/restoring a Rainforest run ID (used to rerun failed tests)
+    cache_key: # optional, default is ${{ github.job }}-${{ github.action }}
+          name: Publish packages
 
 on:
   push:
