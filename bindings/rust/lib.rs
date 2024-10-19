@@ -1,15 +1,12 @@
 //! This crate provides JSON language support for the [tree-sitter][] parsing library.
 //!
-//! Typically, you will use the [language][language func] function to add this language to a
+//! Typically, you will use the [LANGUAGE][] constant to add this language to a
 //! tree-sitter [Parser][], and then use the parser to parse some code:
 //!
 //! ```
-//! use tree_sitter::Parser;
-//!
 //! let code = r#"
-//! { "name": "John", "age": 42 }
 //! "#;
-//! let mut parser = Parser::new();
+//! let mut parser = tree_sitter::Parser::new();
 //! let language = tree_sitter_json::LANGUAGE;
 //! parser
 //!     .set_language(&language.into())
@@ -18,8 +15,6 @@
 //! assert!(!tree.root_node().has_error());
 //! ```
 //!
-//! [Language]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Language.html
-//! [language func]: fn.language.html
 //! [Parser]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Parser.html
 //! [tree-sitter]: https://tree-sitter.github.io/
 
@@ -29,7 +24,9 @@ extern "C" {
     fn tree_sitter_json() -> *const ();
 }
 
-/// The tree-sitter [`LanguageFn`] for this grammar.
+/// The tree-sitter [`LanguageFn`][LanguageFn] for this grammar.
+///
+/// [LanguageFn]: https://docs.rs/tree-sitter-language/*/tree_sitter_language/struct.LanguageFn.html
 pub const LANGUAGE: LanguageFn = unsafe { LanguageFn::from_raw(tree_sitter_json) };
 
 /// The content of the [`node-types.json`][] file for this grammar.
@@ -38,7 +35,7 @@ pub const LANGUAGE: LanguageFn = unsafe { LanguageFn::from_raw(tree_sitter_json)
 pub const NODE_TYPES: &str = include_str!("../../src/node-types.json");
 
 /// The syntax highlighting query for this language.
-pub const HIGHLIGHTS_QUERY: &'static str = include_str!("../../queries/highlights.scm");
+pub const HIGHLIGHTS_QUERY: &str = include_str!("../../queries/highlights.scm");
 
 #[cfg(test)]
 mod tests {
