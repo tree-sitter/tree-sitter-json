@@ -4,6 +4,11 @@ on:
   push:
     tags: ["*"]
 
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
 jobs:
   github:
     uses: tree-sitter/workflows/.github/workflows/release.yml@main
@@ -14,6 +19,8 @@ jobs:
     uses: tree-sitter/workflows/.github/workflows/package-npm.yml@main
     secrets:
       NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    with:
+      ubuntu-version: "22.04"
   crates:
     uses: tree-sitter/workflows/.github/workflows/package-crates.yml@main
     secrets:
