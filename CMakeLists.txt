@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-json
-        VERSION "0.24.6"
+        VERSION "0.24.7"
         DESCRIPTION "JSON grammar for tree-sitter"
         HOMEPAGE_URL "https://github.com/tree-sitter/tree-sitter-json"
         LANGUAGES C)

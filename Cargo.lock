@@ -82,7 +82,7 @@ dependencies = [
 
 [[package]]
 name = "tree-sitter-json"
-version = "0.24.6"
+version = "0.24.7"
 dependencies = [
  "cc",
  "tree-sitter",

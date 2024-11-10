@@ -12,10 +12,6 @@ permissions:
 jobs:
   github:
     uses: tree-sitter/workflows/.github/workflows/release.yml@main
-    permissions:
-      contents: write
-      id-token: write
-      attestations: write
     with:
       generate: true
       attestations: true
