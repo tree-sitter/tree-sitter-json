@@ -6,7 +6,8 @@
       "scope": "source.json",
       "path": ".",
       "file-types": [
-        "json"
+        "json",
+        "har"
       ],
       "highlights": "queries/highlights.scm"
     }
