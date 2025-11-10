@@ -9,7 +9,6 @@ version = "0.24.8"
 keywords = ["incremental", "parsing", "tree-sitter", "json"]
 classifiers = [
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Topic :: Software Development :: Compilers",
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed",
@@ -19,7 +18,8 @@ authors = [
   { name = "Amaan Qureshi", email = "amaanq12@gmail.com" },
 ]
 requires-python = ">=3.9"
-license.text = "MIT"
+license = "MIT"
+license-files = ["LICENSE"]
 readme = "README.md"
 
 [project.urls]
