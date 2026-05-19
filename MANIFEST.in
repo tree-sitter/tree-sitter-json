@@ -1,0 +1,5 @@
+recursive-include src *.c
+recursive-include src *.h
+recursive-include bindings *.c *.h *.pyi py.typed
+include LICENSE
+include README.md
