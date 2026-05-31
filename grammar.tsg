@@ -1,0 +1,106 @@
+// JSON grammar for tree-sitter - native DSL version
+
+grammar {
+    language: "json",
+    extras: [regexp(r"\s"), comment],
+    supertypes: [_value],
+}
+
+macro comma_sep1(item: rule_t) rule_t {
+    seq(item, repeat(seq(",", item)))
+}
+
+macro comma_sep(item: rule_t) rule_t {
+    optional(comma_sep1(item))
+}
+
+rule document {
+    repeat(_value)
+}
+
+rule _value {
+    choice(
+        object,
+        array,
+        number,
+        string,
+        true,
+        false,
+        null,
+    )
+}
+
+rule object {
+    seq("{", comma_sep(pair), "}")
+}
+
+rule pair {
+    seq(
+        field(key, string),
+        ":",
+        field(value, _value),
+    )
+}
+
+rule array {
+    seq("[", comma_sep(_value), "]")
+}
+
+rule string {
+    choice(
+        seq("\"", "\""),
+        seq("\"", _string_content, "\""),
+    )
+}
+
+rule _string_content {
+    repeat1(choice(
+        string_content,
+        escape_sequence,
+    ))
+}
+
+rule string_content {
+    token_immediate(prec(1, regexp(r#"[^\\"\n]+"#)))
+}
+
+rule escape_sequence {
+    token_immediate(seq(
+        "\\",
+        regexp(r#"(\"|\\|\/|b|f|n|r|t|u)"#),
+    ))
+}
+
+rule number {
+    // Matches the JS grammar's intermediate variable structure:
+    // decimalIntegerLiteral = seq(optional('-'), choice('0', seq(/[1-9]/, optional(decimalDigits))))
+    // signedInteger = seq(optional('-'), decimalDigits)
+    // exponentPart = seq(choice('e', 'E'), signedInteger)
+    token(choice(
+        seq(
+            seq(optional("-"), choice("0", seq(regexp(r"[1-9]"), optional(regexp(r"\d+"))))),
+            ".",
+            optional(regexp(r"\d+")),
+            optional(seq(choice("e", "E"), seq(optional("-"), regexp(r"\d+")))),
+        ),
+        seq(
+            seq(optional("-"), choice("0", seq(regexp(r"[1-9]"), optional(regexp(r"\d+"))))),
+            optional(seq(choice("e", "E"), seq(optional("-"), regexp(r"\d+")))),
+        ),
+    ))
+}
+
+rule true { "true" }
+rule false { "false" }
+rule null { "null" }
+
+rule comment {
+    token(choice(
+        seq("//", regexp(r".*")),
+        seq(
+            "/*",
+            regexp(r#"[^*]*\*+([^/*][^*]*\*+)*"#),
+            "/",
+        ),
+    ))
+}
