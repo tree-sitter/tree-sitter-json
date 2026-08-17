@@ -66,7 +66,7 @@ module.exports = grammar({
 
     number: _ => {
       const decimalDigits = /\d+/;
-      const signedInteger = seq(optional('-'), decimalDigits);
+      const signedInteger = seq(optional(choice('-', '+')), decimalDigits);
       const exponentPart = seq(choice('e', 'E'), signedInteger);
 
       const decimalIntegerLiteral = seq(
