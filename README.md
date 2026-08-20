@@ -7,7 +7,7 @@
 [![npm][npm]](https://www.npmjs.com/package/tree-sitter-json)
 [![pypi][pypi]](https://pypi.org/project/tree-sitter-json)
 
-JSON grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+JSON and JSONC grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 
 [ci]: https://img.shields.io/github/actions/workflow/status/tree-sitter/tree-sitter-json/ci.yml?logo=github&label=CI
 [discord]: https://img.shields.io/discord/1063097320771698699?logo=discord&label=discord
