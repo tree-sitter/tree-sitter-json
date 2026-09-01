@@ -74,18 +74,18 @@ rule escape_sequence {
 rule number {
     // Matches the JS grammar's intermediate variable structure:
     // decimalIntegerLiteral = seq(optional('-'), choice('0', seq(/[1-9]/, optional(decimalDigits))))
-    // signedInteger = seq(optional('-'), decimalDigits)
+    // signedInteger = seq(optional(choice('-', '+')), decimalDigits)
     // exponentPart = seq(choice('e', 'E'), signedInteger)
     token(choice(
         seq(
             seq(optional("-"), choice("0", seq(regexp(r"[1-9]"), optional(regexp(r"\d+"))))),
             ".",
             optional(regexp(r"\d+")),
-            optional(seq(choice("e", "E"), seq(optional("-"), regexp(r"\d+")))),
+            optional(seq(choice("e", "E"), seq(optional(choice("-", "+")), regexp(r"\d+")))),
         ),
         seq(
             seq(optional("-"), choice("0", seq(regexp(r"[1-9]"), optional(regexp(r"\d+"))))),
-            optional(seq(choice("e", "E"), seq(optional("-"), regexp(r"\d+")))),
+            optional(seq(choice("e", "E"), seq(optional(choice("-", "+")), regexp(r"\d+")))),
         ),
     ))
 }
