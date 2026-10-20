@@ -61,7 +61,7 @@ module.exports = grammar({
 
     escape_sequence: _ => token.immediate(seq(
       '\\',
-      /(\"|\\|\/|b|f|n|r|t|u)/,
+      /(\"|\\|\/|b|f|n|r|t|u[a-fA-F0-9]{4})/,
     )),
 
     number: _ => {

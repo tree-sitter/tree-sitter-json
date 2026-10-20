@@ -41,6 +41,7 @@ String content
   "def\n",
   "ghi\t",
   "jkl\f",
+  "\u0d9Ea",
   "//",
   "/**/"
 ]
@@ -61,6 +62,9 @@ String content
     (string
       (string_content)
       (escape_sequence))
+    (string
+      (escape_sequence)
+      (string_content))
     (string
       (string_content))
     (string
